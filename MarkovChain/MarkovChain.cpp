@@ -86,7 +86,7 @@ char MarkovChain::GenerateNextLetter(char firstLetter)
 	{
 		//loop over all of the following letters and add up their counts
 		int total = 0;
-		for each (auto letter in search->second)
+		for (auto letter : search->second)
 		{
 			total += letter.second;
 		}
@@ -97,7 +97,7 @@ char MarkovChain::GenerateNextLetter(char firstLetter)
 
 		//find the letter that matches this roll
 		int totalSoFar = 0;
-		for each (auto letter in search->second)
+		for (auto letter : search->second)
 		{
 			totalSoFar += letter.second;
 			if (totalSoFar >= randRoll)
@@ -127,7 +127,7 @@ std::string MarkovChain::GenerateChain(int length)
 	//look it up in a frequency list of first letters...
 	//loop over all of the first letters and add up their counts
 	int total = 0;
-	for each (auto letter in firstLetterMap)
+	for (auto letter : firstLetterMap)
 	{
 		total += letter.second;
 	}
@@ -138,7 +138,7 @@ std::string MarkovChain::GenerateChain(int length)
 
 	//find the letter that matches this roll
 	int totalSoFar = 0;
-	for each (auto letter in firstLetterMap)
+	for (auto letter : firstLetterMap)
 	{
 		totalSoFar += letter.second;
 		if (totalSoFar >= randRoll)
